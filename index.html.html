@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ahmad Raza | Portfolio</title>
+<meta name="description" content="Ahmad Raza – Computer Science student, Python & Machine Learning enthusiast, QA and web developer.">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f7fb;--surface:#fff;--text:#14161f;--muted:#5b6074;--accent:#5b4bff;--accent2:#00b8d9;--border:#e3e5ef;--glow:rgba(91,75,255,.18);color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b0d16;--surface:#141827;--text:#eceefb;--muted:#9097b3;--accent:#8b7dff;--accent2:#2fd4f0;--border:#252a40;--glow:rgba(139,125,255,.22);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0b0d16;--surface:#141827;--text:#eceefb;--muted:#9097b3;--accent:#8b7dff;--accent2:#2fd4f0;--border:#252a40;--glow:rgba(139,125,255,.22);color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(80px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.7 'Inter',system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3{font-family:'Space Grotesk',system-ui,sans-serif;line-height:1.15;margin:0}
+a{color:inherit;text-decoration:none}
+#bg{position:fixed;inset:0;z-index:-1;width:100%;height:100%}
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));z-index:60}
+nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:calc(12px + env(safe-area-inset-top,0px)) 5vw 12px;display:flex;justify-content:space-between;align-items:center;backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 70%,transparent);border-bottom:1px solid var(--border)}
+.logo{font:700 1.2rem 'Space Grotesk';background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.links{display:flex;gap:26px;align-items:center}
+.links a{font-size:.92rem;color:var(--muted);transition:.2s}
+.links a:hover,.links a.on{color:var(--accent)}
+button{font:inherit;cursor:pointer}
+.icon-btn{background:var(--surface);border:1px solid var(--border);color:var(--text);width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-size:1rem}
+.burger{display:none}
+section{padding:96px 5vw;max-width:1100px;margin:auto}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:120px}
+.tag{display:inline-block;padding:6px 14px;border:1px solid var(--border);background:var(--surface);border-radius:99px;font-size:.82rem;color:var(--muted);width:fit-content}
+.tag i{display:inline-block;width:8px;height:8px;border-radius:50%;background:#2ecc71;margin-right:8px;animation:pulse 1.6s infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 6px rgba(46,204,113,0);opacity:.6}}
+.hero h1{font-size:clamp(2.6rem,8vw,5.4rem);margin:22px 0 10px}
+.grad{background:linear-gradient(90deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.type{font:500 clamp(1.1rem,3vw,1.7rem) 'Space Grotesk';color:var(--muted);min-height:1.6em}
+.type::after{content:"|";margin-left:2px;color:var(--accent);animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hero p.lead{max-width:600px;color:var(--muted);margin:20px 0 32px}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
+.btn{padding:13px 26px;border-radius:12px;font-weight:500;border:1px solid var(--border);background:var(--surface);color:var(--text);transition:.25s}
+.btn.primary{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;border:0;box-shadow:0 10px 30px var(--glow)}
+.btn:hover{transform:translateY(-3px)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px;max-width:560px}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px}
+.stat b{font:700 1.9rem 'Space Grotesk';display:block}
+.stat span{font-size:.82rem;color:var(--muted)}
+.eyebrow{color:var(--accent);font:500 .85rem 'Space Grotesk';letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px}
+h2{font-size:clamp(1.9rem,4.5vw,2.9rem);margin-bottom:40px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:28px;transition:.3s}
+.card:hover{transform:translateY(-5px);box-shadow:0 18px 40px var(--glow);border-color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.about{display:grid;grid-template-columns:1.3fr 1fr;gap:28px}
+.about p{color:var(--muted);margin:0 0 14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.chip{font-size:.8rem;padding:5px 12px;border-radius:99px;background:var(--bg);border:1px solid var(--border);color:var(--muted)}
+.info{list-style:none;margin:0;padding:0}
+.info li{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px dashed var(--border);font-size:.92rem}
+.info li:last-child{border:0}
+.info span{color:var(--muted)}
+.timeline{position:relative;padding-left:30px;border-left:2px solid var(--border);display:grid;gap:26px}
+.item{position:relative}
+.item::before{content:"";position:absolute;left:-39px;top:30px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--accent);box-shadow:0 0 0 5px var(--glow)}
+.item .when{font-size:.82rem;color:var(--accent);font-weight:500}
+.item h3{font-size:1.3rem;margin:4px 0}
+.item .where{color:var(--muted);font-size:.92rem;margin-bottom:12px}
+.item ul{margin:0;padding-left:18px;color:var(--muted);font-size:.94rem}
+.item li{margin-bottom:6px}
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px}
+.filters button{padding:8px 18px;border-radius:99px;border:1px solid var(--border);background:var(--surface);color:var(--muted);transition:.2s}
+.filters button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.skill{margin-bottom:16px}
+.skill div{display:flex;justify-content:space-between;font-size:.9rem;margin-bottom:6px}
+.bar{height:8px;background:var(--bg);border-radius:9px;overflow:hidden;border:1px solid var(--border)}
+.bar i{display:block;height:100%;width:0;border-radius:9px;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+.card h3{font-size:1.15rem;margin-bottom:12px}
+.ach{display:grid;gap:18px}
+.ach .card{display:flex;gap:18px;align-items:flex-start}
+.ach .n{font:700 1.6rem 'Space Grotesk';color:var(--accent);opacity:.8}
+.ach p{margin:0;color:var(--muted)}
+form{display:grid;gap:14px}
+input,textarea{width:100%;padding:14px 16px;border-radius:12px;border:1px solid var(--border);background:var(--bg);color:var(--text);font:inherit}
+input:focus,textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
+.contact{display:grid;grid-template-columns:1fr 1.2fr;gap:28px}
+.contact a.row{display:flex;gap:14px;align-items:center;padding:14px 0;border-bottom:1px dashed var(--border);color:var(--muted);word-break:break-all}
+.contact a.row:hover{color:var(--accent)}
+footer{text-align:center;padding:36px 5vw;color:var(--muted);font-size:.85rem;border-top:1px solid var(--border)}
+.rv{opacity:0;transform:translateY(34px);transition:opacity .8s,transform .8s}
+.rv.in{opacity:1;transform:none}
+#toTop{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));opacity:0;pointer-events:none;transition:.3s;z-index:40}
+#toTop.show{opacity:1;pointer-events:auto}
+@media(max-width:800px){
+.about,.contact{grid-template-columns:1fr}
+.burger{display:grid}
+.links{position:fixed;top:0;right:-100%;height:100%;width:70%;background:var(--surface);flex-direction:column;justify-content:center;gap:30px;transition:.35s;border-left:1px solid var(--border)}
+.links.open{right:0}
+.links a{font-size:1.2rem}
+.stats{grid-template-columns:1fr 1fr 1fr;gap:10px}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas>
+<div id="progress"></div>
+
+<nav>
+  <a href="#home" class="logo">AR.</a>
+  <div class="links" id="links">
+    <a href="#about">About</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#achievements">Achievements</a><a href="#contact">Contact</a>
+    <button class="icon-btn" id="theme" aria-label="Toggle theme">☾</button>
+  </div>
+  <button class="icon-btn burger" id="burger" aria-label="Menu">☰</button>
+</nav>
+
+<section class="hero" id="home">
+  <span class="tag"><i></i>Open to internships &amp; opportunities</span>
+  <h1>Hi, I’m <span class="grad">Ahmad Raza</span></h1>
+  <div class="type" id="type"></div>
+  <p class="lead">Computer Science student at NCBA&amp;E, Lahore, building strong foundations in Python, Machine Learning and web development, with a sharp eye for data accuracy and software quality.</p>
+  <div class="cta">
+    <a href="#contact" class="btn primary">Let’s talk</a>
+    <a href="#experience" class="btn">View experience</a>
+    <a href="https://linkedin.com/in/muhammad-ahmad-raza" target="_blank" rel="noopener" class="btn">LinkedIn ↗</a>
+  </div>
+  <div class="stats">
+    <div class="stat"><b data-count="2028" data-plain>0</b><span>Expected graduation</span></div>
+    <div class="stat"><b data-count="4">0</b><span>Languages spoken</span></div>
+    <div class="stat"><b data-count="5">0</b><span>Core CS subjects</span></div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="eyebrow rv">About me</div>
+  <h2 class="rv">Learning by building</h2>
+  <div class="about">
+    <div class="card rv">
+      <p>I’m pursuing a BS in Computer Science at the National College of Business Administration &amp; Economics (NCBA&amp;E), Lahore. Alongside my studies I work as a Data Parsing Associate, where accuracy and attention to detail are part of every day.</p>
+      <p>Since 2026 I’ve been working on self-directed Python and Machine Learning projects, practising data preprocessing, analysis, model training and evaluation. I’m also interested in QA, web development and open source.</p>
+      <div class="chips"><span class="chip">Machine Learning</span><span class="chip">Web Development</span><span class="chip">Problem Solving</span><span class="chip">Continuous Learning</span><span class="chip">Open Source</span></div>
+    </div>
+    <div class="card rv">
+      <h3>Education</h3>
+      <ul class="info">
+        <li><span>University</span><b>NCBA&amp;E</b></li>
+        <li><span>Degree</span><b>BS Computer Science</b></li>
+        <li><span>Duration</span><b>2024 – 2028</b></li>
+        <li><span>Location</span><b>Lahore, Pakistan</b></li>
+      </ul>
+      <div class="chips"><span class="chip">OOP</span><span class="chip">Data Structures &amp; Algorithms</span><span class="chip">Software Testing &amp; QA</span><span class="chip">Web Technologies</span><span class="chip">DBMS</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="eyebrow rv">Experience</div>
+  <h2 class="rv">Where I’ve worked &amp; learned</h2>
+  <div class="timeline">
+    <div class="item rv card">
+      <div class="when">August 2024 – Present</div>
+      <h3>Data Parsing Associate</h3>
+      <div class="where">Edufi · Lahore, Pakistan</div>
+      <ul>
+        <li>Review and analyse bank statements and financial documents to extract transaction data according to required formats and guidelines.</li>
+        <li>Organise and enter extracted data into Excel with consistent formatting, completeness and easy access.</li>
+        <li>Run data validation and quality checks to catch missing, duplicate or incorrectly formatted information.</li>
+      </ul>
+    </div>
+    <div class="item rv card">
+      <div class="when">2026 – Present</div>
+      <h3>Python &amp; Machine Learning Projects</h3>
+      <div class="where">Self-directed learning &amp; personal projects · Lahore, Pakistan</div>
+      <ul>
+        <li>Built Python programs to strengthen fundamentals, problem solving and data handling.</li>
+        <li>Applied ML concepts: preprocessing, analysis, model training and evaluation.</li>
+        <li>Cleaned, organised and analysed datasets while learning how models perform in practice.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="eyebrow rv">Skills</div>
+  <h2 class="rv">What I work with</h2>
+  <div class="filters rv" id="filters">
+    <button class="on" data-f="all">All</button><button data-f="dev">Development</button><button data-f="qa">QA &amp; Testing</button><button data-f="lang">Languages</button>
+  </div>
+  <div class="grid" id="skillGrid">
+    <div class="card rv" data-c="dev"><h3>Technical</h3>
+      <div class="skill"><div><span>HTML5</span></div><div class="bar"><i data-w="80"></i></div></div>
+      <div class="skill"><div><span>CSS3</span></div><div class="bar"><i data-w="75"></i></div></div>
+      <div class="skill"><div><span>Python</span></div><div class="bar"><i data-w="70"></i></div></div>
+      <div class="skill"><div><span>Machine Learning</span></div><div class="bar"><i data-w="60"></i></div></div>
+      <div class="skill"><div><span>React.js</span></div><div class="bar"><i data-w="50"></i></div></div>
+      <div class="chips"><span class="chip">VS Code</span></div>
+    </div>
+    <div class="card rv" data-c="qa"><h3>QA &amp; Testing</h3>
+      <div class="chips" style="margin:0"><span class="chip">Manual Testing</span><span class="chip">Functional Testing</span><span class="chip">Regression Testing</span><span class="chip">UI &amp; Cross-Browser Testing</span><span class="chip">SDLC / STLC</span><span class="chip">Test Case Design</span><span class="chip">Bug Tracking</span></div>
+    </div>
+    <div class="card rv" data-c="lang"><h3>Languages</h3>
+      <div class="skill"><div><span>Urdu</span><span>Native</span></div><div class="bar"><i data-w="100"></i></div></div>
+      <div class="skill"><div><span>English</span><span>Proficient</span></div><div class="bar"><i data-w="90"></i></div></div>
+      <div class="skill"><div><span>Punjabi</span><span>Proficient</span></div><div class="bar"><i data-w="90"></i></div></div>
+      <div class="skill"><div><span>German</span><span>Proficient</span></div><div class="bar"><i data-w="80"></i></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="achievements">
+  <div class="eyebrow rv">Highlights</div>
+  <h2 class="rv">Key achievements</h2>
+  <div class="ach">
+    <div class="card rv"><span class="n">01</span><p>Developed practical skills in Python programming, data handling and Machine Learning fundamentals through self-directed learning and hands-on practice.</p></div>
+    <div class="card rv"><span class="n">02</span><p>Gained experience processing and organising financial data and bank statements with a focus on accuracy, validation and structured Excel reporting.</p></div>
+    <div class="card rv"><span class="n">03</span><p>Built a strong foundation in data preprocessing, analysis and basic ML model development, improving continuously through practical projects.</p></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="eyebrow rv">Contact</div>
+  <h2 class="rv">Let’s work together</h2>
+  <div class="contact">
+    <div class="card rv">
+      <a class="row" href="mailto:afahmadraza89@gmail.com">✉ afahmadraza89@gmail.com</a>
+      <a class="row" href="tel:+923294598865">☎ +92 329 4598865</a>
+      <a class="row" href="https://linkedin.com/in/muhammad-ahmad-raza" target="_blank" rel="noopener">in linkedin.com/in/muhammad-ahmad-raza</a>
+      <a class="row" href="#contact">⌖ Lahore, Pakistan</a>
+    </div>
+    <form class="card rv" id="form" novalidate>
+      <input id="name" placeholder="Your name" required>
+      <input id="email" type="email" placeholder="Your email" required>
+      <textarea id="msg" rows="5" placeholder="Your message" required></textarea>
+      <button class="btn primary" type="submit">Send message</button>
+      <small id="status" style="color:var(--muted)" aria-live="polite"></small>
+    </form>
+  </div>
+</section>
+
+<footer>© <span id="yr"></span> Ahmad Raza · Designed &amp; built with HTML, CSS &amp; JavaScript</footer>
+<button class="icon-btn" id="toTop" aria-label="Back to top">↑</button>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+$('#yr').textContent=new Date().getFullYear();
+
+/* Theme toggle (saved when storage is available) */
+const root=document.documentElement,btn=$('#theme');
+const dark=()=>root.dataset.theme?root.dataset.theme==='dark':matchMedia('(prefers-color-scheme:dark)').matches;
+try{const t=localStorage.getItem('theme');if(t)root.dataset.theme=t}catch(e){}
+const sync=()=>btn.textContent=dark()?'☀':'☾';sync();
+btn.onclick=()=>{root.dataset.theme=dark()?'light':'dark';try{localStorage.setItem('theme',root.dataset.theme)}catch(e){}sync()};
+
+/* Mobile menu */
+$('#burger').onclick=()=>$('#links').classList.toggle('open');
+$$('#links a').forEach(a=>a.onclick=()=>$('#links').classList.remove('open'));
+
+/* Typing effect */
+const words=['Computer Science Student','Python & ML Enthusiast','Web Developer','QA & Testing Minded'];
+let w=0,c=0,del=false;const el=$('#type');
+(function tick(){const s=words[w];el.textContent=s.slice(0,c);
+ if(!del&&c===s.length){del=true;return setTimeout(tick,1400)}
+ if(del&&c===0){del=false;w=(w+1)%words.length}
+ c+=del?-1:1;setTimeout(tick,del?40:80)})();
+
+/* Reveal, skill bars, counters */
+const count=n=>{const t=+n.dataset.count,plain='plain' in n.dataset;let s=null;
+ const f=ts=>{s??=ts;const p=Math.min((ts-s)/1400,1);n.textContent=Math.round(t*p);if(p<1)requestAnimationFrame(f)};requestAnimationFrame(f)};
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;
+ e.target.classList.add('in');e.target.querySelectorAll('.bar i').forEach(b=>b.style.width=b.dataset.w+'%');io.unobserve(e.target)}),{threshold:.15});
+$$('.rv').forEach(x=>io.observe(x));
+const io2=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){count(e.target);io2.unobserve(e.target)}}));
+$$('[data-count]').forEach(x=>io2.observe(x));
+
+/* Skill filter */
+$$('#filters button').forEach(b=>b.onclick=()=>{
+ $$('#filters button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+ $$('#skillGrid .card').forEach(c=>{const show=b.dataset.f==='all'||c.dataset.c===b.dataset.f;
+  c.style.display=show?'':'none';if(show)c.querySelectorAll('.bar i').forEach(i=>i.style.width=i.dataset.w+'%')})});
+
+/* Scroll progress, active link, back-to-top */
+const secs=$$('section'),links=$$('.links a');
+addEventListener('scroll',()=>{
+ const h=document.documentElement,p=scrollY/(h.scrollHeight-innerHeight);
+ $('#progress').style.width=p*100+'%';$('#toTop').classList.toggle('show',scrollY>600);
+ let cur='';secs.forEach(s=>{if(scrollY>=s.offsetTop-160)cur=s.id});
+ links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+cur))},{passive:true});
+$('#toTop').onclick=()=>scrollTo({top:0,behavior:'smooth'});
+
+/* Contact form (opens the visitor's mail app) */
+$('#form').onsubmit=e=>{e.preventDefault();
+ const n=$('#name').value.trim(),m=$('#email').value.trim(),t=$('#msg').value.trim(),s=$('#status');
+ if(!n||!/^\S+@\S+\.\S+$/.test(m)||!t){s.textContent='Please fill in all fields with a valid email.';return}
+ location.href=`mailto:afahmadraza89@gmail.com?subject=${encodeURIComponent('Portfolio message from '+n)}&body=${encodeURIComponent(t+'\n\n— '+n+' ('+m+')')}`;
+ s.textContent='Opening your email app…'};
+
+/* Particle network background */
+const cv=$('#bg'),cx=cv.getContext('2d');let P=[],mx=-999,my=-999;
+const size=()=>{cv.width=innerWidth;cv.height=innerHeight;P=Array.from({length:Math.min(70,innerWidth/18|0)},()=>({x:Math.random()*cv.width,y:Math.random()*cv.height,vx:(Math.random()-.5)*.4,vy:(Math.random()-.5)*.4}))};
+size();addEventListener('resize',size);addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY});
+if(!matchMedia('(prefers-reduced-motion:reduce)').matches)(function draw(){
+ cx.clearRect(0,0,cv.width,cv.height);
+ const col=getComputedStyle(root).getPropertyValue('--accent').trim()||'#8b7dff';
+ cx.fillStyle=col;cx.strokeStyle=col;
+ P.forEach((a,i)=>{a.x+=a.vx;a.y+=a.vy;if(a.x<0||a.x>cv.width)a.vx*=-1;if(a.y<0||a.y>cv.height)a.vy*=-1;
+  cx.globalAlpha=.5;cx.beginPath();cx.arc(a.x,a.y,1.8,0,7);cx.fill();
+  for(let j=i+1;j<P.length;j++){const b=P[j],d=Math.hypot(a.x-b.x,a.y-b.y);if(d<120){cx.globalAlpha=.14*(1-d/120);cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.stroke()}}
+  const dm=Math.hypot(a.x-mx,a.y-my);if(dm<150){cx.globalAlpha=.3*(1-dm/150);cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(mx,my);cx.stroke()}});
+ requestAnimationFrame(draw)})();
+</script>
+</body>
+</html>
